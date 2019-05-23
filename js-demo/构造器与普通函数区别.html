@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>构造器与普通函数的区别</title>
+</head>
+
+<body>
+    <h1>构造器与普通函数的区别</h1>
+    <div>
+        <p>小白我，感觉似乎都一样，构造器函数，this 代表对象本身； 函数，this 代表调用者。这么理解对不对？</p>
+    </div>
+    <a href="https://segmentfault.com/a/1190000013795390" target="_blank"
+        title="查看这个链接，JS函数的工厂模式、构造函数模式、原型模式的区别">JS函数的工厂模式、构造函数模式、原型模式的区别</a>
+    <br>
+    <div>
+        <iframe src="https://segmentfault.com/a/1190000013795390" width="100%" height="600px"></iframe>
+    </div>
+    <div>
+        <p>小白我，感觉似乎都一样，构造器函数，this 代表对象本身； 函数，this 代表调用者。这么理解对不对？</p>
+    </div>
+
+</body>
+<script>
+    // 普通函数
+    function person(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+    // 构造器
+    function Person(name, age) {
+        this.age = age;
+        this.name = name;
+        this.hello = function () {
+            console.log('hello ' + this.name);
+        }
+    }
+    // 原型
+
+</script>
+
+</html>

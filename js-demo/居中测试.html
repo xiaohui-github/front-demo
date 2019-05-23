@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>居中测试</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #popup-div {
+            background: rgba(0, 0, 0, .2);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+        }
+
+        #popup-content {
+            position: fixed;
+            /* text-align: center; */
+            border: azure solid .2px;
+            /* min-width: 100px; */
+            background-color: white;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>居中测试</h1>
+        <button id="btn-popup-show">显示弹窗</button>
+    </div>
+    <!-- 弹窗部分 -->
+    <div id="popup-div">
+        <div id="popup-content">
+            <h3>我是弹窗</h3>
+            <div>
+                <p>我是内容</p>
+            </div>
+            <button id="btn-popup-hidden">隐藏弹窗</button>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var popup = document.getElementById('popup-content');
+        // doument.body.clientXXX,对象的XX大小
+        // var left = (document.body.clientWidth - popup.clientWidth) / 2;
+        // var top = (document.body.clientHeight - popup.clientHeight) / 2;
+        
+        var top = (window.innerHeight - popup.clientWidth) / 2;
+        var left = (window.innerWidth - popup.clientWidth) / 2;
+        var popStyle = 'top:' + top + 'px; left:' + left + 'px; position: fixed;';
+        popup.setAttribute('style', popStyle);
+
+        var popupDiv = document.getElementById('popup-div');
+        popupDiv.classList.add('hidden');
+
+        document.getElementById('btn-popup-show').onclick = function () {
+            var popupDiv = document.getElementById('popup-div');
+            popupDiv.classList.remove('hidden');
+            popupDiv.classList.add('show');
+            console.log('我显示了....');
+        }
+
+        document.getElementById('btn-popup-hidden').onclick = function () {
+            var popupDiv = document.getElementById('popup-div');
+            popupDiv.classList.remove('show');
+            popupDiv.classList.add('hidden');
+            console.log('我隐藏了....');
+        }
+    }
+</script>
+
+</html>
